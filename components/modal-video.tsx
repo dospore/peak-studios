@@ -33,7 +33,7 @@ export default function ModalVideo({
       {/* Video thumbnail */}
       <div>
         <div className="relative flex justify-center items-center" data-aos="fade-up" data-aos-delay="200">
-          <Image src={thumb} width={thumbWidth} height={thumbHeight} alt={thumbAlt} />
+          <Image className="w-full" src={thumb} height={thumbHeight} alt={thumbAlt} />
           <button className="absolute group" onClick={() => { setModalOpen(true) }} aria-label="Watch the video">
             <svg className="w-16 h-16 sm:w-20 sm:h-20 hover:opacity-75 transition duration-150 ease-in-out" viewBox="0 0 88 88" xmlns="http://www.w3.org/2000/svg">
               <defs>
@@ -78,7 +78,7 @@ export default function ModalVideo({
           >
             <div className="max-w-6xl mx-auto h-full flex items-center">
               <Dialog.Panel className="w-full max-h-full aspect-video bg-black overflow-hidden">
-                <video ref={videoRef} width={videoWidth} height={videoHeight} loop controls>
+                <video ref={videoRef} width={'100%'}  loop controls>
                   <source src={video} type="video/mp4" />
                   Your browser does not support the video tag.
                 </video>
