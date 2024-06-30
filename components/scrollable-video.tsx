@@ -2,7 +2,6 @@
 
 import { useEffect, useRef, useCallback } from "react";
 import { useScroll, animated } from '@react-spring/web'
-import { Parallax } from 'react-scroll-parallax';
 
 type Props = {
   id: string

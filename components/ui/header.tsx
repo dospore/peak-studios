@@ -9,8 +9,8 @@ export default function Header() {
           {/* Site branding */}
           <div className="shrink-0 mr-4">
             {/* Logo */}
-            <Link href="/" className="block" aria-label="skyHi">
-              <img className="w-7 h-7" src="/images/skyhi-logo.svg" />
+            <Link href="/" className="block" aria-label="pollivision">
+              <img className="w-7 h-7" src="/images/pollivision-logo.svg" />
             </Link>
           </div>
 

@@ -2,19 +2,18 @@
 
 import { Parallax, ParallaxLayer } from '@react-spring/parallax';
 
-import Title from './Title'
-import Hero from './Hero'
-import { TopSwirls, BottomSwirls } from '@/components/swirls'
-import { features, Feature, FeatureHeading } from '../../components/Features'
-import { ShowcaseItem } from '../../components/Showcase'
+import Title from '@/components/Title/index'
+import Hero from '@/components/Hero/index'
+import Footer from '@/components/ui/footer';
+import { TopSwirls, BottomSwirls } from '@/components/Swirls/index'
+import { features, Feature, FeatureHeading } from '@/components/Features/index'
+import { HoverableVideo } from '@/components/Hoverable/index'
 
 const alignCenter = { display: 'flex', alignItems: 'center' }
 
-const doubleSided = { width: 'calc(100% - 6rem)' }
-
 export default function ParallaxPages () {
   return (
-    <Parallax pages={7}>
+    <Parallax pages={6}>
       <ParallaxLayer offset={0} speed={0.1}>
         <TopSwirls />
       </ParallaxLayer>
@@ -28,7 +27,7 @@ export default function ParallaxPages () {
       <ParallaxLayer offset={0.6} speed={4}>
         <Hero />
       </ParallaxLayer>
-      <ParallaxLayer sticky={{ start: 1, end: 3.1 }} style={{ ...alignCenter, justifyContent: 'flex-start' }}>
+      <ParallaxLayer sticky={{ start: 1, end: 3.4 }} style={{ ...alignCenter, justifyContent: 'flex-start' }}>
         <div className="w-[45vw] ml-12">
           <FeatureHeading />
         </div>
@@ -44,71 +43,37 @@ export default function ParallaxPages () {
           </div>
         </ParallaxLayer>
       ))}
-      {/* 
-      <ParallaxLayer offset={4} speed={1.2}>
-        <LeftBox>
-          <video
-            src="/videos/fpv-mountain.mp4"
-            className="h-[300px] w-full"
-          />
-        </LeftBox>
+      <ParallaxLayer offset={4} speed={0.2} style={{ ...alignCenter, zIndex: 1 }}>
+        <div className="rounded bg-white px-4 py-1 ml-12" >
+          <h2 className="h2 mb-2">Endless possibilities.</h2>
+        </div>
       </ParallaxLayer>
-      <ParallaxLayer offset={4} sticky={{ start: 4, end: 4.3 }} speed={0.2}>
-        <RightBox top={'top-[25%]'}>
-          <ShowcaseItem />
-        </RightBox>
+      <ParallaxLayer offset={4} speed={1.2} style={{ ...alignCenter, justifyContent: 'flex-start' }}>
+        <HoverableVideo src={"/videos/fpv-mountain.mp4"} className="ml-80 h-[150px] w-full" />
       </ParallaxLayer>
-      <ParallaxLayer offset={5} sticky={{ start: 5, end: 5.3 }} speed={0.2}>
-        <LeftBox top={'top-[25%]'}>
-          <ShowcaseItem />
-        </LeftBox>
+      <ParallaxLayer offset={4.5} speed={2} style={{ ...alignCenter }}>
+        <HoverableVideo src={"/videos/fpv-mountain.mp4"} className=" ml-12 h-[170px] w-full" />
       </ParallaxLayer>
-      <ParallaxLayer offset={5} speed={1.2}>
-        <RightBox>
-          <video
-            src="/videos/fpv-mountain.mp4"
-            className="h-[300px] w-full"
-          />
-        </RightBox>
+      <ParallaxLayer offset={4.2} speed={0.8} style={{ ...alignCenter, justifyContent: 'flex-end' }}>
+        <HoverableVideo src={"/videos/fpv-mountain.mp4"} className="mr-24 h-[100px] w-full" />
       </ParallaxLayer>
-      */}
+      <ParallaxLayer offset={4.1} speed={0.5} style={{ ...alignCenter, justifyContent: 'flex-start' }}>
+        <HoverableVideo src={"/videos/fpv-mountain.mp4"} className="ml-40 h-[200px] w-full" />
+      </ParallaxLayer>
+      <ParallaxLayer offset={4.1} speed={0.2} style={{ ...alignCenter, justifyContent: 'flex-end' }}>
+        <HoverableVideo src={"/videos/fpv-mountain.mp4"} className="mr-64 h-[175px] w-full" />
+      </ParallaxLayer>
+      <ParallaxLayer offset={4.6} speed={1.5} style={{ ...alignCenter, justifyContent: 'flex-end' }}>
+        <HoverableVideo src={"/videos/fpv-mountain.mp4"} className="mr-80 h-[50px] w-full" />
+      </ParallaxLayer>
+      <ParallaxLayer offset={4.8} speed={1.5} style={{ ...alignCenter }}>
+        <HoverableVideo src={"/videos/fpv-mountain.mp4"} className="ml-80 h-[140px] w-full" />
+      </ParallaxLayer>
+      <ParallaxLayer offset={5} style={{ ...alignCenter }} sticky={{ start: 5, end: 6 }}>
+        <div className="mt-auto">
+          <Footer />
+        </div>
+      </ParallaxLayer>
     </Parallax>
   )
 }
-
-type BoxProps = { children?: React.ReactNode, top?: string }
-
-const LeftBox = ({ children, top }: BoxProps) => (
-  <div className={`absolute left-12 w-[50vw] ${top}`}>
-    {children}
-  </div>
-)
-
-const RightBox = ({ children, top }: BoxProps) => (
-  <div className={`absolute right-12 w-[50vw] ${top}`}>
-    {children}
-  </div>
-)
-
-const ShowcaseBox = ({ rightText, offset, image, text }: ShowcaseBoxProps) => {
-
-  let textSide = rightText ? 'right-12' : 'left-12'
-  let imageSide = rightText ? 'left-12' : 'right-12'
-
-  return (
-    <>
-      <ParallaxLayer offset={offset} sticky={{ start: offset, end: offset + 1 }} speed={0.2}>
-        <div className={`absolute w-[50vw] ${textSide}`}>
-          {text}
-        </div>
-      </ParallaxLayer>
-      <ParallaxLayer offset={offset} speed={1.3}>
-        <div className={`absolute ${imageSide}`}>
-          {image}
-        </div>
-      </ParallaxLayer>
-    </>
-  )
-}
-
-
