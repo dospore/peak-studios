@@ -19,7 +19,7 @@ const bacasime_antique = Bacasime_Antique({
 })
 
 export const metadata = {
-  title: 'PolliVision Studios',
+  title: 'Peak Footage',
   description: 'Experienced FPV drone pilot videography studio',
 }
 

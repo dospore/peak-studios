@@ -24,7 +24,7 @@ export const features: Feature[] = [
   }, {
     image: <WrenchScrewdriverIcon />,
     title: "Drone builds",
-    text: "At PolliVision, we don't just fly drones—we build them too. Our custom drone builds are designed to meet your specific requirements, whether you're a hobbyist or a professional."
+    text: "At Peak Studios, we don't just fly drones—we build them too. Our custom drone builds are designed to meet your specific requirements, whether you're a hobbyist or a professional."
   }, {
     image: <VideoCameraIcon />,
     title: "3D Modelling",

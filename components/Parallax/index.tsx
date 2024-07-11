@@ -11,16 +11,30 @@ import { HoverableVideo } from '@/components/Hoverable/index'
 
 const alignCenter = { display: 'flex', alignItems: 'center' }
 
+const Container = ({ children }: { children: React.ReactNode }) => (
+  <div className="max-w-6xl mx-auto w-full">
+    {children}
+  </div>
+)
+
+
 export default function ParallaxPages () {
   return (
     <Parallax pages={6}>
+      {/* BG imagery */}
       <ParallaxLayer offset={0} speed={0.1}>
         <TopSwirls />
       </ParallaxLayer>
       <ParallaxLayer offset={0.5} speed={-2}>
         <BottomSwirls />
       </ParallaxLayer>
+      {/*
+      <ParallaxLayer offset={0.3} speed={-2}>
+        <img src="/images/mountain.jpg" className="w-full opacity-5 pl-12" />
+      </ParallaxLayer>
+      */}
 
+      {/* Content */}
       <ParallaxLayer offset={0.25}>
         <Title />
       </ParallaxLayer>
@@ -28,9 +42,11 @@ export default function ParallaxPages () {
         <Hero />
       </ParallaxLayer>
       <ParallaxLayer sticky={{ start: 1, end: 3.4 }} style={{ ...alignCenter, justifyContent: 'flex-start' }}>
-        <div className="w-[45vw] ml-12">
-          <FeatureHeading />
-        </div>
+        <Container>
+          <div className="w-[45vw] px-4">
+            <FeatureHeading />
+          </div>
+        </Container>
       </ParallaxLayer>
       {(features ?? []).map((feature, i) => (
         <ParallaxLayer offset={2 + (i * 0.3)} style={{ ...alignCenter, justifyContent: 'flex-end' }}>
@@ -44,9 +60,11 @@ export default function ParallaxPages () {
         </ParallaxLayer>
       ))}
       <ParallaxLayer offset={4} speed={0.2} style={{ ...alignCenter, zIndex: 1 }}>
-        <div className="rounded bg-white px-4 py-1 ml-12" >
-          <h2 className="h2 mb-2">Endless possibilities.</h2>
-        </div>
+        <Container>
+          <div className="rounded bg-white px-4 py-1">
+            <h2 className="h2 mb-2">Endless possibilities.</h2>
+          </div>
+        </Container>
       </ParallaxLayer>
       <ParallaxLayer offset={4} speed={1.2} style={{ ...alignCenter, justifyContent: 'flex-start' }}>
         <HoverableVideo src={"/videos/fpv-mountain.mp4"} className="ml-80 h-[150px] w-full" />
@@ -69,7 +87,7 @@ export default function ParallaxPages () {
       <ParallaxLayer offset={4.8} speed={1.5} style={{ ...alignCenter }}>
         <HoverableVideo src={"/videos/fpv-mountain.mp4"} className="ml-80 h-[140px] w-full" />
       </ParallaxLayer>
-      <ParallaxLayer offset={5} style={{ ...alignCenter }} sticky={{ start: 5, end: 6 }}>
+      <ParallaxLayer offset={6} style={{ ...alignCenter }} sticky={{ start: 5, end: 6 }}>
         <div className="mt-auto">
           <Footer />
         </div>

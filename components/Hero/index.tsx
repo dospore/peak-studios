@@ -6,6 +6,7 @@ export default function Hero() {
   return (
       <div className="max-w-6xl mx-auto px-4 sm:px-6 relative">
         <div className="w-[760px] h-[576px] mx-auto rounded overflow-hidden">
+          {/*
           <ModalVideo
             thumb={VideoThumb}
             thumbWidth={1024}
@@ -14,6 +15,7 @@ export default function Hero() {
             video="/videos/video.mp4"
             videoWidth={1920}
             videoHeight={1080} />
+          */}
         </div>
       </div>
   )

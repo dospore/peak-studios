@@ -1,5 +1,5 @@
 export const metadata = {
-  title: 'Home - PolliVision Studios',
+  title: 'Home - Peak Studios',
   description: 'Page description',
 }
 
