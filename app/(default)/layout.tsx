@@ -6,8 +6,6 @@ import AOS from 'aos'
 import 'aos/dist/aos.css'
 import { ParallaxProvider } from 'react-scroll-parallax';
 
-import Footer from '@/components/ui/footer'
-
 export default function DefaultLayout({
   children,
 }: {
