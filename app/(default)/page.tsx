@@ -1,12 +1,20 @@
 export const metadata = {
-  title: 'Home - Peak Studios',
-  description: 'Page description',
+  title: 'Peak Studios',
+  description: 'Custom FPV videography',
 }
 
-import ParallaxPages from '../../components/Parallax';
+import Desktop from '../../pages/Home/desktop';
+import Mobile from '../../pages/Home/mobile';
 
 export default function Home() {
   return (
-      <ParallaxPages />
+    <>
+      <div className="hidden md:block">
+        <Desktop />
+      </div>
+      <div className="block md:hidden">
+        <Mobile />
+      </div>
+    </>
   )
 }
