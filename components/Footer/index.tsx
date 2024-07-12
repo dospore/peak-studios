@@ -4,7 +4,7 @@ import Link from 'next/link'
 export default function Footer() {
   return (
     <footer>
-      <div className="py-12 md:py-16">
+      <div className="pt-16 pb-12 md:pb-16">
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
 
           {/* Top area: Blocks */}
@@ -14,7 +14,7 @@ export default function Footer() {
             <div className="md:col-span-4 lg:col-span-5">
               <div className="mb-2">
                 {/* Logo */}
-                <Link href="/" className="inline-block" aria-label="peak-studios">
+                <Link href="/" className="inline-block hidden md:block" aria-label="peak-studios">
                   <img src="/images/peak-studios-logo.svg" className="w-8 h-8" />
                 </Link>
               </div>

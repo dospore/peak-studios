@@ -3,8 +3,8 @@ export const metadata = {
   description: 'Custom FPV videography',
 }
 
-import Desktop from '../../pages/Home/desktop';
-import Mobile from '../../pages/Home/mobile';
+import Desktop from '@/archetypes/Home/desktop';
+import Mobile from '@/archetypes/Home/mobile';
 
 export default function Home() {
   return (
