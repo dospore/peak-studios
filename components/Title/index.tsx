@@ -1,4 +1,10 @@
-function Title () {
+type Props = {
+  scrollToServices: () => void
+}
+
+function Title ({
+  scrollToServices
+}: Props) {
   return (
     <div className="max-w-3xl mx-auto text-center pb-12 md:pb-16">
       <h1 className="h1 mb-4 font-bacasime-antique text-slate-800 font-normal" data-aos="fade-up">Peak Studios</h1>
@@ -7,7 +13,7 @@ function Title () {
       </p>
       <div className="max-w-xs mx-auto sm:max-w-none sm:flex sm:justify-center">
         <div data-aos="fade-up" data-aos-delay="600">
-          <a className="btn text-white bg-gray-700 hover:bg-gray-800 w-full sm:w-auto sm:ml-4" href="#0">Our Services</a>
+          <button className="btn text-white bg-gray-700 hover:bg-gray-800 w-full sm:w-auto sm:ml-4" onClick={scrollToServices}>Our Services</button>
         </div>
       </div>
     </div>

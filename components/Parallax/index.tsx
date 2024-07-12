@@ -1,6 +1,7 @@
 "use client"
 
-import { Parallax, ParallaxLayer } from '@react-spring/parallax';
+import { Parallax, ParallaxLayer, IParallax } from '@react-spring/parallax';
+import { useRef } from 'react';
 
 import Title from '@/components/Title/index'
 import Hero from '@/components/Hero/index'
@@ -11,16 +12,24 @@ import { HoverableVideo } from '@/components/Hoverable/index'
 
 const alignCenter = { display: 'flex', alignItems: 'center' }
 
-const Container = ({ children }: { children: React.ReactNode }) => (
-  <div className="max-w-6xl mx-auto w-full">
+const Container = ({ children, className }: { children?: React.ReactNode, className?: string }) => (
+  <div className={`max-w-6xl mx-auto w-full ${className}`}>
     {children}
   </div>
 )
 
 
 export default function ParallaxPages () {
+  const ref = useRef<IParallax | null>(null);
+
+  const scrollToServices = () => {
+    if (ref.current) {
+      ref.current.scrollTo(1);
+    }
+  }
+
   return (
-    <Parallax pages={6}>
+    <Parallax ref={ref} pages={6}>
       {/* BG imagery */}
       <ParallaxLayer offset={0} speed={0.1}>
         <TopSwirls />
@@ -36,7 +45,7 @@ export default function ParallaxPages () {
 
       {/* Content */}
       <ParallaxLayer offset={0.25}>
-        <Title />
+        <Title scrollToServices={scrollToServices} />
       </ParallaxLayer>
       <ParallaxLayer offset={0.6} speed={4}>
         <Hero />
@@ -88,9 +97,9 @@ export default function ParallaxPages () {
         <HoverableVideo src={"/videos/fpv-mountain.mp4"} className="ml-80 h-[140px] w-full" />
       </ParallaxLayer>
       <ParallaxLayer offset={6} style={{ ...alignCenter }} sticky={{ start: 5, end: 6 }}>
-        <div className="mt-auto">
+        <Container className="mt-auto">
           <Footer />
-        </div>
+        </Container>
       </ParallaxLayer>
     </Parallax>
   )
